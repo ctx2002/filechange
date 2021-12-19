@@ -1,0 +1,15 @@
+How to use this package
+
+<?php
+require_once __DIR__ . "./vendor/autoload.php";
+
+use Softwarewisdom\DirMonitor\DirMonitor;
+
+$obj = new DirMonitor(__DIR__, ['exclude_dir' => ['vendor', '.idea']]);
+while (1) {
+    /** @var string $item*/
+    foreach ($obj->scan() as $item) {
+        dump($item);
+    }
+    sleep(5);
+}
